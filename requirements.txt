@@ -4,3 +4,6 @@ motor
 redis
 pydantic
 python-dotenv
+pytest
+httpx
+pytest-asyncio
