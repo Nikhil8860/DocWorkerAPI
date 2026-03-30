@@ -5,6 +5,7 @@ from app.services.document_service import create_document, get_document
 
 router = APIRouter()
 
+
 @router.post("/documents")
 async def create(doc: DocumentCreate):
     try:
@@ -12,6 +13,7 @@ async def create(doc: DocumentCreate):
     except Exception as e:
         if str(e) == "RATE_LIMIT":
             raise HTTPException(status_code=429, detail="Rate limit exceeded")
+
 
 @router.get("/documents/{doc_id}")
 async def get(doc_id: str):
