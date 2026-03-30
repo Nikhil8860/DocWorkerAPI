@@ -1,0 +1,69 @@
+# Python
+
+**pycache**/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual Environment
+
+venv/
+.env/
+env/
+ENV/
+.venv/
+
+# Environment Variables
+
+.env
+
+# Database / Local Data
+
+*.db
+*.sqlite3
+mongodb-data/
+dump/
+
+# Testing / Coverage
+
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+
+# IDE / Editor
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Files
+
+.DS_Store
+Thumbs.db
+
+# Docker (optional)
+
+*.log
+docker-compose.override.yml
+
+# Logs
+
+logs/
+*.log
+
+# Uvicorn / FastAPI
+
+*.pid
+
+# Misc
+
+*.bak
+*.tmp
