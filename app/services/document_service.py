@@ -12,6 +12,22 @@ from app.utils.hash import generate_hash
 # Create Document
 async def create_document(data):
     content_hash = generate_hash(data.content)
+    # Check cache
+    cached = await r.get(f"cache:{data.user_id}:{content_hash}")
+    print("Cached values: ", cached)
+    if cached:
+        return {
+            "status": Status.COMPLETED,
+            "summary": cached
+        }
+
+    # Rate limiting
+    active_jobs = await r.get(f"active:{data.user_id}") or 0
+    print("Active Jobs: ", active_jobs)
+    if int(active_jobs) >= MAX_ACTIVE_JOBS:
+        raise Exception("RATE_LIMIT")
+
+    await r.incr(f"active:{data.user_id}")
 
     doc = {
         "user_id": data.user_id,
