@@ -13,6 +13,7 @@ async def create(doc: DocumentCreate):
     except Exception as e:
         if str(e) == "RATE_LIMIT":
             raise HTTPException(status_code=429, detail="Rate limit exceeded")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.get("/documents/{doc_id}")

@@ -8,6 +8,11 @@ services:
     depends_on:
       - mongo
       - redis
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+      - REDIS_URL=redis://redis:6379
+      - MAX_ACTIVE_JOBS=3
+      - CACHE_TTL=3600
 
   mongo:
     image: mongo
